@@ -7,7 +7,7 @@ from sqlalchemy.ext.automap import automap_base
 from sqlalchemy.orm import Session
 from sqlalchemy import create_engine, func
 
-from flask import Flask, jsonify
+from flask import Flask, jsonify, render_template
 
 
 #################################################
@@ -38,16 +38,15 @@ app = Flask(__name__)
 # Flask Routes
 #################################################
 
+# # create index 
 @app.route("/")
 def welcome():
-    return (
-        f"Welcome to the US Cities Analysis API!<br/>"
-        f"Available Routes:<br/>"
-        f"/api/v1.0/population<br/>"
-    )
+     # Store the entire dict collection in a dict 
+    cities = Cities
+    return render_template("index.html", cities = cities)
 
 
-@app.route("/api/v1.0/population")
+@app.route("/population")
 def population():
     """Return the pop data for each city"""
 
@@ -57,24 +56,28 @@ def population():
 
     return jsonify(population)
 
-# # create index 
-# @app.route("/")
-# def index():
-# #         # Store the entire dict collection in a dict  dict(db.mars_data.find())
-#     mars = mongo.db.mars_data.find_one()
-#     return render_template('index.html', mars=mars)
+# create metadata route for metric selector
+@app.route("/metadata")
+def metric_metadata(metric):
+    """Return all data for a given metric."""
+    sel = [
+        Cities.population,
+        Cities.lat,
+        Cities.lng
+    ]
 
-# # create scrape 
-# @app.route("/scrape")
-# def scrape():
-#     scrape_mars_dict = scrape_mars.scrape()
-#     mars_data = db.mars_data
-#     mars_data.update(
-#         {},
-#         scrape_mars_dict,
-#         upsert=True
-#     )
-#     return redirect("/", code=302)
+    results = session.query(*sel).all()
+
+    # Create a dictionary entry for each row of metadata information
+    metric_metadata = {}
+    for result in results:
+        metric_metadata["population"] = result[0]
+        metric_metadata["lat"] = result[1]
+        metric_metadata["lng"] = result[2]
+ 
+
+    print(metric_metadata)
+    return jsonify(metric_metadata)
 
 if __name__ == "__main__":
     app.run(debug=True)
