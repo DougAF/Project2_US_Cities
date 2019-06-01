@@ -1,4 +1,4 @@
-function createMap(quakePlot) {
+function createMap(citiesPlot) {
 
     // Create the tile layer that will be the background of our map
     const lightmap = L.tileLayer("https://api.mapbox.com/styles/v1/mapbox/light-v9/tiles/256/{z}/{x}/{y}?access_token={accessToken}", {
@@ -24,7 +24,6 @@ function createMap(quakePlot) {
         accessToken: API_KEY
     })
 
-
     // Create a baseMaps object to hold the lightmap layer
     const baseMaps = {
         "Light Map": lightmap,
@@ -34,14 +33,14 @@ function createMap(quakePlot) {
 
     // Create an overlayMaps object to hold the quakePlot layer
     let overlayMaps = {
-        "<b>Earthquake Epicenters</b><hr>Click a Cirlce for more info!<br><small>'M' = Magnitude or Power of the Seismic Event</small>": quakePlot
+        "<b>US Cities Data!</b><hr>Click a Cirlce for more info!<br>": citiesPlot
     };
 
     // Create the map object with options
     let map = L.map("map-id", {
         center: [35.73, -90],
         zoom: 4,
-        layers: [lightmap, darkmap, quakePlot]
+        layers: [lightmap, darkmap, satellite, citiesPlot]
     });
 
     // Create a layer control, pass in the baseMaps and overlayMaps. Add the layer control to the map
@@ -49,83 +48,57 @@ function createMap(quakePlot) {
         collapsed: false
     }).addTo(map);
 
-
-
     // Create and add Legend
-    const legend = L.control({position: 'bottomright'});
-
-    legend.onAdd = function() {
-        const div = L.DomUtil.create('div', 'legend');
-        const labels = ['0-1', '1-3', '3-5', '5-7', '>7']
-        const colors = ['green', 'yellow', 'orange', 'red', 'grey']
-        div.innerHTML = '<b><font color="grey">Magnitude</font></b>';
-             for (let i = 0; i < colors.length; i++){
-                div.innerHTML +=
-                '<li style="background-color:' + colors[i] + '">' +'<b>' + labels[i] + '</b>'+ '</li>';        }
-        return div;
-    }    
-     // Add the info legend to the map
-    legend.addTo(map);
 };
 
 function createCircleMarkers(response) {
 
     // Pull the features from response
-    let quakes = response.features;
-
-    // Loop through the quake array
-    const quakeMarkers = quakes.map(quake => {
-
-        // For each station, create a marker and bind a popup with the station's name
+    const citiesMarkers = response.map(city => {
+        citiesList = (city['city'])
+        popList = (city['population'])
+        latList = (city['lat'])
+        lngList = (city['lng'])
+        // cityVars.push(citiesList, popList, latList, lngList)
+        // console.log(cityVars)
+      
+        // For each city, create a marker and bind a popup with the city's name
         // coords from response contain a depth field, slice removes this
         // Reverse swaps lat and lng to map locations correctly
-        const coords = quake.geometry.coordinates.slice(0,2).reverse()
+
+        const coords = [city.lat, city.lng]
 
         // Change the values of these options to change the symbol's appearance    
         let options = {
-            radius: quake.properties.mag * 15000,
-            fillColor: colorCircle(quake.properties.mag),
-            color: colorCircle(quake.properties.mag),
+            radius: city.properties.mag * 15000,
+            fillColor: colorCircle(city.properties.mag),
+            color: colorCircle(city.properties.mag),
             weight: 1,
             opacity: 1,
             fillOpacity: 0.5
           }
           
         // new Date parses Epoch time from JSON into human readable date&time
-        const popupMsg = "<h3>" + quake.properties.title + "<h3><h3>Date: " + new Date(quake.properties.time)+ "<h3>";
-        const quakeMarkers = L.circle(coords, options).bindPopup(popupMsg);
+        const popupMsg = "<h3>" + city.properties.title + "<h3><h3>Date: " + new Date(quake.properties.time)+ "<h3>";
+        const citiesMarkers = L.circle(coords, options).bindPopup(popupMsg);
 
         // Add the marker to the quakeMarkers array
-        return quakeMarkers;
+        return citiesMarkers;
     })
 
     // Create a layer group made from the quakeMarkers array, pass it into the createMap function
-    createMap(L.layerGroup(quakeMarkers));
+    createMap(L.layerGroup(citiesMarkers));
 }
 
 // Perform an API call to the USGS earthquake API to get quake info. Call createCircleMarkers when complete
 (async function(){
-    const urlGeoJSON = "https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.geojson"
-    let response = await d3.json(urlGeoJSON)
+    const metadataUrl = "/metadata"
+    let response = await d3.json(metadataUrl)
     // console.log(response) For analysis in terminal
+    console.log(response)
     createCircleMarkers(response)
 })()
 
-// this little function will return a color based on the earthquakes magnitude 
-function colorCircle(mag) {
-    let color = '';
-    if (mag <= 1) {
-        color = 'green';
-    } else if (mag > 1 && mag <= 3) {
-        color = 'yellow';
-    } else if (mag > 3 && mag <= 5) {
-        color = 'orange';
-    } else if (mag > 5 && mag <=7) {
-        color = 'red';
-    } else if (mag > 7)
-        color = 'grey';
-    return color;
-  }
 
 // BUILD DROPDOWN SELECTOR
 function buildDropdown(metric) {
@@ -134,23 +107,22 @@ function buildDropdown(metric) {
     const metadataUrl = "/metadata" ; 
   
     // Use d3 to select the panel with id of `#metric-metadata`
-    const metadataSample = d3.select('city-metadata')
+    const metadataVariable = d3.select('city-metadata')
    
     // clear existing metadata
-    metadataSample.html("")
+    metadataVariable.html("")
   
     // Use `Object.entries` to add each key and value pair to the panel Hint: Inside the loop, you will need to use d3 to append new tags for each key-value in the metadata.
     
-    async function getPanel() {
+    async function getVars() {
       let jsonMeta = await d3.json(metadataUrl);
       //Object.entries() method returns an array of a given object's own enumerable string-keyed property [key, value] pairs, in the same order as that provided
-      let metaArray = Object.entries(jsonMeta);
-      metaArray.map(([key, value]) => {metadataSample
-        .append("h6")
-        .html(`<b>${key}</b>  :  ${value}`) // how to append multi w/o literal?
-        });
+    //   jsonMeta.map(key => {values
+    //     .append("h6")
+    //     .html(`<b>${key}</b>  :  ${values}`) // how to append multi w/o literal?
+    //     });
       }
-    getPanel();
+    getVars();
   }
   
 function init() {
@@ -158,21 +130,32 @@ function init() {
     var selector = d3.select("#selDataset");
   
     // Use the list of sample names to populate the select options
-    d3.json("/metadata").then((cityVar) => {
-      cityVar.forEach((variable) => {
+    cityDicts = d3.json("/metadata")
+    // const p = Promise.resolve(cityDicts)
+    cityVars = []
+    cityDicts.then(function(data) {data.map((city) => {
+            citiesList = (city['city'])
+            popList = (city['population'])
+            latList = (city['lat'])
+            lngList = (city['lng'])
+            // cityVars.push(citiesList, popList, latList, lngList)
+            // console.log(cityVars)
+          });})
+
+    // cityDicts.then(function (data){data.forEach((city) => {
+      cityVar.forEach((key) => {
         selector
           .append("option")
-          .text(variable)
-          .property("value", variable);
+          .text(key)
+          .property("value", key);
       });
   
-      // Use the first sample from the list to build the initial plots
+    //   Use the first sample from the list to build the initial plots
       const firstVar = cityVar[0];
-      buildCharts(firstVar);
-      buildDropdown(firstVar);
-    });
-  }
-  
+    //   buildCharts(firstVar);
+       buildDropdown(firstVar);
+     };
+
   function optionChanged(newVar) {
     // Fetch new data each time a new sample is selected
     // buildCharts(newSample);

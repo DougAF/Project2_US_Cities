@@ -39,16 +39,35 @@ app = Flask(__name__)
 # create index 
 @app.route("/")
 def welcome():
-     # Store the entire dict collection in a dict 
+    engine = create_engine("sqlite:///p2_cities.sqlite")
+
+    # reflect an existing database into a new model
+    Base = automap_base() # AUTO MAP OR DECLARATIVE?
+    # reflect the tables
+    Base.prepare(engine, reflect=True)
+    # Save references to table
+    Cities = Base.classes.cities
+    #Create our session (link) from Python to the DB
+    session = Session(engine)
+    # Store the entire dict collection in a dict 
     cities = Cities
+    
     return render_template("index.html", cities = cities)
 
 #testing route 
 @app.route("/population")
 def population():
     """Return the pop data for each city"""
-
-    # Query for the city name, pop, lat ,lng, and fliter to grab largest 100 
+    engine = create_engine("sqlite:///p2_cities.sqlite")
+# reflect an existing database into a new model
+    Base = automap_base() # AUTO MAP OR DECLARATIVE?
+# reflect the tables
+    Base.prepare(engine, reflect=True)
+# Save references to table
+    Cities = Base.classes.cities
+# Create our session (link) from Python to the DB
+    session = Session(engine)
+ # Query for the city name, pop, lat ,lng, and fliter to grab largest 100 
     population = session.query(Cities.city, Cities.population, Cities.lat, Cities.lng).\
         filter(Cities.population > 500000).all()
 
@@ -57,7 +76,17 @@ def population():
 #create metadata route for metric selector
 @app.route("/metadata")
 def city_metadata():
-    """Return all data for a given metric."""
+    engine = create_engine("sqlite:///p2_cities.sqlite")
+# reflect an existing database into a new model
+    Base = automap_base() # AUTO MAP OR DECLARATIVE?
+# reflect the tables
+    Base.prepare(engine, reflect=True)
+# Save references to table
+    Cities = Base.classes.cities
+# Create our session (link) from Python to the DB
+    session = Session(engine)
+
+    """Return all data for a city."""
     sel = [
         Cities.city,
         Cities.state_name,
@@ -68,17 +97,21 @@ def city_metadata():
 
     results = session.query(*sel).order_by(Cities.population.desc()).limit(100).all()
 
-    # Create a dictionary entry for each row of metadata information
-    meta_list = []
+    # Create a dictionary entry for each city's information
+    meta_dict = {}
+    # meta_dict2 = {}
+   
+    # list = []
     for result in results:
         city_metadata_dict = {}
         city_metadata_dict["city"] = result[0]
         city_metadata_dict["state"] = result[1]
-        city_metadata_dict["lat"] = result[2]
-        city_metadata_dict["lng"] = result[3]
+        city_metadata_dict["coordinates"] = [result[2], result[3]]
         city_metadata_dict["population"] = result[4]
-        meta_list.append(city_metadata_dict)
-    return jsonify(meta_list)
+        meta_dict.update({city_metadata_dict["city"]: city_metadata_dict})
+        # list.append(city_metadata_dict)
+        # meta_dict2.update({"values": meta_dict})
+    return jsonify(meta_dict)
 
 
 if __name__ == "__main__":
