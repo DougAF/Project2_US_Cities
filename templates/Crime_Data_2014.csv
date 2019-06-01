@@ -1,0 +1,296 @@
+Agency,State,Months,Population,ViolentCrimerate,Propertycrimerate
+Abilene Police Dept,TX,12,120686,473.1,4428
+Akron City Police Dept,OH,12,197891,690.3,4610.1
+Albuquerque Police Dept,NM,12,558874,882.8,5446.1
+Alexandria Police Dept,VA,12,151065,185.4,1974.6
+Allentown City Police Dept,PA,12,118710,514.7,3218.8
+Amarillo Police Dept,TX,12,197724,684.3,4748.5
+Amherst Town Police Dept,NY,12,118860,107.7,1738.2
+Anaheim Police Dept,CA,12,346956,317.3,2362.3
+Anchorage Police Dept,AK,12,301306,864.6,3827
+Ann Arbor Police Dept,MI,12,117768,165.6,1880.8
+Antioch Police Dept,CA,12,108223,784.5,3871.6
+Arlington Police Dept,TX,12,382976,484.1,3515.1
+Arvada Police Dept,CO,12,113008,149.5,2359.1
+Athens-Clarke County Police Department,GA,12,121511,306.1,3120.7
+Atlanta Police Dept,GA,12,454363,1227.4,5747.4
+Aurora Police Dept,CO,12,350948,407.5,2838.9
+Aurora Police Dept,IL,12,200419,278.4,1487.9
+Austin Police Dept,TX,12,903924,396.2,4142.4
+Bakersfield Police Dept,CA,12,367406,456.7,3972.4
+Baltimore City Police Dept,MD,12,623513,1338.5,4718.4
+Baton Rouge Police Dept,LA,12,229387,924.2,4477.1
+Beaumont Police Dept,TX,12,117898,890.6,4690.5
+Bellevue Police Dept,WA,12,135449,106.3,3400.5
+Berkeley Police Dept,CA,12,117753,366,4332.8
+Billings Police Dept,MT,12,110245,381,4500
+Birmingham Police Dept,AL,12,212115,1588.3,6566.7
+Boise Police Dept,ID,12,216260,288.5,2086.8
+Boston Police Dept,MA,12,654413,725.7,2638.9
+Boulder Police Dept,CO,12,104284,234.9,2665.8
+Bridgeport Police Dept,CT,12,147822,905.1,2898.8
+Broken Arrow Police Dept,OK,12,104592,141.5,1640.7
+Brownsville Police Dept,TX,12,183433,304.2,4091.4
+Buffalo Police Dept,NY,12,258419,1227.9,4817.4
+Burbank Police Dept,CA,12,105041,142.8,2309.6
+Cambridge Police Dept,MA,12,108201,279.1,2412.2
+Cape Coral Police Dept,FL,12,168712,143.4,1938.8
+Carslbad Police Dept,CA,12,112297,181.7,1541.4
+Carrollton Police Dept,TX,12,128577,129.1,2165.2
+Cary Police Dept,NC,12,154978,63.2,1104
+Cedar Rapids Police Dept,IA,12,128901,301,3912.3
+Centennial,CO,12,107485,132.1,1207.6
+Chandler Police Dept,AZ,12,252369,184.7,2236
+Charleston City Police Dept,SC,12,129867,210.2,2297.7
+Charlotte-Mecklenburg Police Department,NC,12,856916,589.8,3566.9
+Chattanooga Police Dept,TN,12,174449,972.8,6305.6
+Chesapeake Police Dept,VA,12,232489,429.7,2765.3
+Chicago Police Dept,IL,12,2724121,,3133.2
+Chula Vista Police Dept,CA,12,259894,235.5,1740.7
+Cincinnati Police Dept,OH,12,297671,913.4,5603.5
+Clarksville Police Dept,TN,12,144639,670.6,2962.5
+Clearwater Police Dept,FL,12,110075,582.3,3891
+Cleveland,OH,12,388655,1339.2,5458.8
+Clovis Police Dept,CA,12,100705,214.5,3042.6
+City Of College Station Police Dept,TX,12,101483,188.2,2308.8
+Colorado Springs,CO,12,444949,455.6,3668.1
+Columbia Police Dept,MO,12,116847,350.9,3413
+Columbia Police Dept,SC,12,134124,772.4,5401
+Columbus Police Dept,GA,12,206714,532.6,6471.7
+Columbus Police Dept,OH,12,830811,558.5,4278.2
+Concord Police Dept,CA,12,126744,366.9,4099.6
+Coral Springs Police Dept,FL,12,127939,158.7,1939.2
+Corona Police Dept,CA,12,161128,106.1,2134.9
+Corpus Christi Police Dept,TX,12,319211,656,4420.3
+Costa Mesa Police Dept,CA,12,112709,282.1,3071.6
+Dallas Police Dept,TX,12,1272396,664.7,3589.2
+Daly City Police Dept,CA,12,105628,183.7,1595.2
+Davenport Police Dept,IA,12,102715,619.2,4084.1
+Dayton,OH,12,143217,863.7,5586.6
+Denton Police Dept,TX,12,125248,269.9,2435.2
+Denver Police Dept,CO,12,665353,601.5,3367.4
+Des Moines Police Dept,IA,12,208250,612.7,4260.3
+Detroit Police Dept,MI,12,684694,1989.5,4818.9
+Downey Police Dept,CA,12,113595,247.4,2550.3
+Durham Police Dept,NC,12,249738,734.4,4438.7
+Edison Twp Police Dept,NJ,12,101965,96.1,1083.7
+El Cajon Police Dept,CA,12,102838,318,2189.9
+El Monte Police Dept,CA,12,116220,286.5,1904.1
+El Paso Police Dept,TX,12,680273,392.6,2141.8
+Elgin Police Dept,IL,12,110595,198.9,1805.7
+Elizabeth Police Dept,NJ,12,128345,889.8,2996.6
+Erie Police Dept,PA,12,100403,404.4,2629.4
+Escondido Police Dept,CA,12,149839,341.7,2019.5
+Eugene Police Dept,OR,12,159882,367.1,4151.2
+Evansville Police Dept,IN,12,120372,517.6,5718.1
+Everett Police Dept,WA,12,105911,343.7,6559.3
+Fairfield Police Dept,CA,12,110300,470.5,3511.3
+Fargo Police Dept,ND,12,115686,358.7,2647.7
+Fayetteville Police Dept,NC,12,205306,506.1,5126
+Fontana Police Dept,CA,12,204532,347.1,1813.9
+Fort Collins Police Dept,CO,12,154015,209.1,2455.6
+Fort Lauderdale Police Dept,FL,12,174056,772.7,5132.3
+Fort Wayne Police Dept,IN,12,257172,317.3,3247.6
+City Of Fort Worth Police Dept,TX,12,804907,558.1,4000.6
+Fremont Police Dept,CA,12,227575,124.8,1718.1
+Fresno Police Dept,CA,12,513187,464.2,4111.8
+Frisco Police Dept,TX,12,141940,83.1,1786
+Fullerton Police Dept,CA,12,139895,242.3,2291.7
+Gainesville Police Dept,FL,12,128185,637.4,3573
+Garden Grove Police Dept,CA,12,176106,230.5,1759.2
+Garland Police Dept,TX,12,236414,272.4,3254.9
+Gilbert Police Dept,AZ,12,235430,90,1494.3
+Glendale Police Dept,AZ,12,236780,389,5312.1
+Glendale Police Dept,CA,12,197079,94.4,1559.3
+Grand Prairie Police Dept,TX,12,185273,260.2,2501.7
+Grand Rapids Police Dept,MI,12,193385,714.1,2675.5
+Green Bay Police Dept,WI,12,104979,497.2,2204.3
+Greensboro Police Dept,NC,12,282203,477,3600.2
+Gresham Police Dept,OR,12,110276,497.8,4680.1
+Hampton Police Dept,VA,12,136590,255.5,3251.3
+Hartford Police Dept,CT,12,124943,1104.5,4225.9
+Hayward Police Dept,CA,12,153319,394.6,3178.3
+Henderson Police Dept,NV,12,274121,164.9,1978.3
+Hialeah Police Dept,FL,12,235446,332.1,2776
+High Point Police Dept,NC,12,108540,465.3,3559.1
+Hollywood Police Dept,FL,12,147918,494.2,4316.6
+Honolulu Police Dept,HI,4,994034,,
+Houston Police Dept,TX,12,2219933,991.4,4693.7
+Huntington Beach Police Dept,CA,12,199152,196.3,2128
+Huntsville Police Dept,AL,12,187624,781.9,4882.6
+Independence Police Dept,MO,12,117321,405.7,5610.2
+Indianapolis Police Dept,IN,12,858238,1254.7,4823.1
+Inglewood Police Dept,CA,12,111997,699.1,2446.5
+Irvine Police Department,CA,12,242971,49.4,1253.2
+Irving Police Dept,TX,12,231708,221,2715.1
+Jackson Police Dept,MS,12,172376,924.1,6022.9
+Jacksonville,FL,12,856021,683.7,3940.6
+Jersey City Police Dept,NJ,12,260005,531.1,1630.7
+Joliet,IL,12,147838,334.8,2021.1
+Kansas City Police Dept,KS,12,149103,710.9,4906.7
+Kansas City Police Dept,MO,12,468417,1257.9,4862.3
+Kenosha Police Dept,WI,12,100025,287.9,2412.4
+Kent Police Dept,WA,12,125837,287.7,4984.2
+Killeen Police Dept,TX,12,139211,607.7,3378.3
+Knoxville Police Dept,TN,12,184362,875.5,6531.7
+Lafayette Police Dept,LA,12,125122,650.6,5434.7
+Lakeland Police Dept,FL,12,101428,446.6,5210.6
+Lakewood,CO,12,148236,481,4617.6
+Lancaster,CA,12,160190,556.2,2285.4
+Lansing City Police Dept,MI,12,113901,1118.5,3152.7
+Laredo,TX,12,250994,388.9,3859.5
+Las Cruces Police Dept,NM,12,102113,288.9,4518.5
+Las Vegas Metropolitan Police Department,NV,12,1530899,841.1,2923.4
+Lewisville Police Dept,TX,12,102439,196.2,2543
+Lexington-Fayette County Police Department,KY,12,311848,336.7,3912.5
+Lincoln Police Dept,NE,12,271208,338.5,3348.7
+Little Rock Police Dept,AR,12,198217,1405,7402
+Long Beach Police Dept,CA,12,471123,489,2640.1
+Los Angeles Police Dept,CA,12,3906772,490.7,2128.1
+Louisville Metro,KY,12,677710,592.4,4196.2
+Lowell Police Dept,MA,12,109729,545.9,2551.7
+Lubbock Police Dept,TX,12,241826,861.8,4390.3
+Madison City Police Dept,WI,12,245788,344.2,2843.5
+Manchester Police Dept,NH,12,110571,619.5,3623
+Mcallen Police Dept,TX,12,138122,131,3581.6
+Mckinney Police Dept,TX,12,152806,146.6,1863.1
+Memphis Police Dept,TN,12,654922,1743.7,5995.1
+Mesa Police Dept,AZ,12,462092,458.6,2800.3
+Mesquite Police Dept,TX,12,144396,299.2,4048.6
+Miami Police Dept,FL,12,421996,1060,4832.7
+Midland Police Dept,TX,12,127344,319.6,2564.7
+Milwaukee Police Dept,WI,12,600374,1484.7,4588.3
+Minneapolis Police Dept,MN,12,404461,1012,4728
+Miramar Police Dept,FL,12,132352,315.1,2077.8
+Mobile Police Dept,AL,12,250655,593.6,4629.1
+Modesto Police Dept,CA,12,205820,863.9,4427.7
+Montgomery Police Dept,AL,12,200194,522.5,4508.1
+Moreno Valley,CA,12,202911,287.8,3159
+Murfreesboro Police Dept,TN,12,119005,535.3,3355.3
+City Of Murrieta Police Dept,CA,12,108376,62.7,1345.3
+Naperville Police Dept,IL,12,145510,77.7,1122.9
+Nashville-Davidson Metro Police Dept,TN,12,647689,1125.4,3646.8
+New Haven Police Dept,CT,12,130882,1088.8,3994.4
+New Orleans Police Dept,LA,12,387113,973.9,4231.8
+New York City Police Dept,NY,12,8473938,596.7,1601.9
+Newark Police Dept,NJ,12,279110,1078.1,2851.2
+Newport News Police Dept,VA,12,182374,428.8,3044.3
+Norfolk Police Dept,VA,12,247078,520.1,3924.3
+Norman Police Dept,OK,12,119956,160.1,2703.5
+North Charleston Police Dept,SC,12,105594,723.5,5468.1
+North Las Vegas Police Dept,NV,12,229436,776.7,2400.7
+Norwalk,CA,12,106838,295.8,1872.9
+Oakland Police Dept,CA,12,409994,1685.4,5943.3
+Oceanside,CA,12,174102,374.5,2288.3
+Odessa Police Dept,TX,12,113619,940,3711.5
+Oklahoma City Police Dept,OK,12,617975,773.8,4410.9
+Olathe Police Dept,KS,12,133341,75.7,1309.4
+Omaha Police Dept,NE,12,438465,560.6,4345.4
+Ontario Police Dept,CA,12,168278,256.1,2765.7
+Orange Police Dept,CA,12,140767,100.9,1592
+Orlando Police Dept,FL,12,259675,901.1,6359.9
+City Of Overland Park Police Dept,KS,12,183108,178.6,1656.4
+Oxnard Police Dept,CA,12,204159,433,3126
+Palm Bay Police Dept,FL,12,105287,569.9,2114.2
+Palmdale,CA,12,158210,530.9,2034.6
+Pasadena Police Dept,CA,12,140373,280.7,2471.3
+Pasadena Police Dept,TX,12,153540,384.9,3015.5
+Paterson Police Dept,NJ,12,146083,816,2639.6
+Pearland Police Dept,TX,12,102516,156.1,2017.2
+Pembroke Pines Police Dept,FL,12,164372,168.5,2296.6
+Peoria Police Dept,AZ,12,164722,148.1,2002.8
+Peoria Police Dept,IL,12,116923,649.1,4154.9
+Philadelphia Police Dept,PA,12,1559062,1021.4,3387.7
+Phoenix Police Dept,AZ,12,1529852,571.9,3724.3
+Pittsburgh,PA,12,307613,798.1,3212.8
+Plano Police Dept,TX,12,277822,165.2,1982.6
+Pomona Police Dept,CA,12,151899,511.5,2898.6
+Pompano Beach Police Dept,FL,12,105523,823.5,4328.9
+City Of Port St Lucie Police Dept,FL,12,172453,140.9,1448.5
+Portland Police Dept,OR,12,615672,472.8,5234.8
+Providence Police Dept,RI,12,178640,522.3,3840.1
+Provo Police Dept,UT,12,117158,131.4,1906.8
+Pueblo Police Dept,CO,12,108591,818.7,6530
+Raleigh Police Dept,NC,5,438363,,
+Rancho Cucamonga,CA,12,172694,163.9,2124
+Reno Police Dept,NV,12,235055,488,2892.1
+Rialto Police Dept,CA,12,102540,319.9,2100.6
+Richardson Police Dept,TX,12,105744,169.3,2274.4
+Richmond Police Dept,CA,12,108464,777.2,3946.9
+Richmond (City) Bureau Of Police,VA,12,216747,583.2,3887.5
+Riverside Police Dept,CA,12,319453,433.2,3087.8
+Rochester Police Dept,MN,12,111712,,1989.9
+Rochester Police Dept,NY,12,210347,849.5,4210.2
+Rockford Police Dept,IL,12,149586,1245.4,4307.2
+Roseville Police Dept,CA,12,128997,149.6,2379.9
+Round Rock Police Dept,TX,12,112199,124.8,1951
+Sacramento Police Dept,CA,12,482767,614.8,3123.2
+Salem Police Dept,OR,12,162028,313.5,4366.5
+Salinas Police Dept,CA,12,156908,635.4,3331.3
+Salt Lake City Police Dept,UT,12,192368,754.8,8460.9
+San Antonio Police Dept,TX,12,1428465,539.3,5417.8
+San Bernardino Police Dept,CA,12,214588,991.7,4305.5
+San Diego Police Dept,CA,12,1368690,380.9,1959
+San Francisco Police Dept,CA,12,850294,795.1,5303.2
+San Jose Police Dept,CA,12,1009679,321.1,2434.1
+San Mateo Police Dept,CA,12,102082,225.3,1904.4
+Santa Ana Police Dept,CA,12,336462,374.5,1719.1
+Santa Clara Police Dept,CA,12,121114,133.8,2698.3
+Santa Clarita,CA,12,206930,148.4,1177.7
+Santa Maria Police Dept,CA,12,102885,426.7,2959.6
+Santa Rosa Police Dept,CA,12,172991,367.6,2225.5
+Savannah Police Dept,GA,12,236682,391.7,3594.3
+Scottsdale Police Dept,AZ,12,229325,157.9,2311.6
+Seattle Police Dept,WA,12,663410,603.7,6145.7
+Shreveport Police Dept,LA,12,200184,721.3,4597.8
+Simi Valley Police Dept,CA,12,126604,110.6,1278
+Sioux Falls Police Dept,SD,12,167339,444.6,2958.1
+South Bend Police Dept,IN,12,100853,685.2,4703.9
+Spokane Police Dept,WA,12,211025,547.8,8559.2
+Springfield Police Dept,IL,12,117134,1065.4,4725.4
+Springfield Police Dept,MA,12,153766,1091.3,3841.6
+Springfield Police Dept,MO,12,165280,1186.5,7646.4
+St. Louis Police Dept,MO,12,318574,1678.7,6252.6
+St. Paul Police Dept,MN,12,297984,662.5,3484.4
+St. Petersburg Police Dept,FL,12,250772,864.9,5642.6
+Stamford Police Dept,CT,12,127385,243.4,1619.5
+Sterling Heights Police Dept,MI,12,131604,160.3,1537.2
+Stockton Police Dept,CA,12,299519,1331.5,4389.7
+Sunnyvale Dept Of Public Safety,CA,12,149384,111.8,1577.1
+Surprise Police Dept,AZ,12,125049,109.6,1678.5
+Syracuse Police Dept,NY,12,144534,810.9,3981.8
+Tacoma Police Dept,WA,12,204722,798.2,6241.6
+Tallahassee Police Dept,FL,12,187573,937.2,4840.8
+Tampa Police Dept,FL,12,357124,582.4,2427.7
+Temecula,CA,12,108308,92.3,2340.5
+Tempe Police Dept,AZ,12,169812,470.5,4737
+Thornton Police Dept,CO,12,129442,254.9,2904.8
+Thousand Oaks,CA,12,129175,99.1,1237.9
+Toledo Police Dept,OH,12,281150,1091.2,
+Topeka Police Dept,KS,12,127673,509.9,4903.2
+Torrance Police Dept,CA,12,147971,104.8,1772.6
+Tucson Police Dept,AZ,12,527328,652.9,
+Tulsa Police Dept,OK,12,399556,805.1,5081.6
+Tyler Police Dept,TX,12,100969,462.5,4050.7
+Vallejo Police Dept,CA,12,119504,865.2,4081
+Vancouver Police Dept,WA,12,168688,343.8,3118.2
+Ventura Police Dept,CA,12,109246,252.6,3539.7
+Victorville,CA,12,122316,524.9,3576
+Virginia Beach Police Dept,VA,12,451102,147.9,2186.9
+Visalia Police Dept,CA,12,128488,376.7,2954.4
+City Of Waco Police Dept,TX,12,129944,443.3,3854.7
+Warren Police Dept,MI,12,135080,478.2,2549.6
+Washington Metropolitan Police Dept,DC,12,658893,1185.3,5012.5
+Waterbury Police Dept,CT,12,109495,372.6,4192.9
+West Covina Police Dept,CA,12,108136,208.1,2618.9
+West Jordan Police Dept,UT,12,111618,190.8,1859
+West Palm Beach Police Dept,FL,12,103028,824,4647.3
+West Valley Police Dept,UT,12,134590,472.5,4446.1
+Westminster Police Dept,CO,12,112100,233.7,2913.5
+Wichita Police Dept,KS,12,387493,758.5,4722.9
+Wichita Falls Police Dept,TX,12,104949,405.9,4057.2
+Wilmington Police Dept,NC,12,113418,675.4,4560.1
+Winston-Salem Police Dept,NC,12,238082,712.4,5416.6
+Woodbridge Police Dept,NJ,12,100969,114.9,1797.6
+Worcester Police Dept,MA,12,183248,964.8,3062.5
+Yonkers Police Dept,NY,12,200624,487,1001.4

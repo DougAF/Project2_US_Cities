@@ -128,13 +128,13 @@ function colorCircle(mag) {
   }
 
 // BUILD DROPDOWN SELECTOR
-function buildDropdown(metric) {
+  function buildSelector(metric) {
 
     // @TODO: function to build metadata panel Use `d3.json` to fetch the metadata for a sample @app.route("/metadata/<sample>")
-    const metadataUrl = "/metadata" ; 
+    const metadataUrl = "/metadata/" + metric; 
   
     // Use d3 to select the panel with id of `#metric-metadata`
-    const metadataSample = d3.select('city-metadata')
+    const metadataSample = d3.select('metric-metadata')
    
     // clear existing metadata
     metadataSample.html("")
@@ -153,31 +153,3 @@ function buildDropdown(metric) {
     getPanel();
   }
   
-function init() {
-    // Grab a reference to the dropdown select element
-    var selector = d3.select("#selDataset");
-  
-    // Use the list of sample names to populate the select options
-    d3.json("/metadata").then((cityVar) => {
-      cityVar.forEach((variable) => {
-        selector
-          .append("option")
-          .text(variable)
-          .property("value", variable);
-      });
-  
-      // Use the first sample from the list to build the initial plots
-      const firstVar = cityVar[0];
-      buildCharts(firstVar);
-      buildDropdown(firstVar);
-    });
-  }
-  
-  function optionChanged(newVar) {
-    // Fetch new data each time a new sample is selected
-    // buildCharts(newSample);
-    buildDropdown(newVar);
-  }
-  
-  // Initialize the dashboard
-  init();
