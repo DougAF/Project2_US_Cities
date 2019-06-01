@@ -101,15 +101,20 @@ def city_metadata():
     meta_dict = {}
     # meta_dict2 = {}
    
-    # list = []
+    meta_list = []
+
+    # for i in range(len(results)):
+
     for result in results:
         city_metadata_dict = {}
         city_metadata_dict["city"] = result[0]
         city_metadata_dict["state"] = result[1]
         city_metadata_dict["coordinates"] = [result[2], result[3]]
         city_metadata_dict["population"] = result[4]
-        meta_dict.update({city_metadata_dict["city"]: city_metadata_dict})
-        # list.append(city_metadata_dict)
+            # meta_dict.updte({city_metadata_dict["cit"]: city_metadata_dict})
+        meta_list.append(city_metadata_dict)
+    meta_dict = {"key": meta_list}
+        # list.apend(city_metadata_dict)
         # meta_dict2.update({"values": meta_dict})
     return jsonify(meta_dict)
 

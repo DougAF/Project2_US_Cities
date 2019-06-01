@@ -33,13 +33,13 @@ function createMap(citiesPlot) {
 
     // Create an overlayMaps object to hold the quakePlot layer
     let overlayMaps = {
-        "<b>US Cities Data!</b><hr>Click a Cirlce for more info!<br>": citiesPlot
+        "<b>US Cities Data!</b><hr>Click a Circle for more info!<br>": citiesPlot
     };
 
     // Create the map object with options
     let map = L.map("map-id", {
         center: [35.73, -90],
-        zoom: 4,
+        zoom: 3,
         layers: [lightmap, darkmap, satellite, citiesPlot]
     });
 
@@ -53,33 +53,28 @@ function createMap(citiesPlot) {
 
 function createCircleMarkers(response) {
 
+    cities = response.key
     // Pull the features from response
-    const citiesMarkers = response.map(city => {
-        citiesList = (city['city'])
-        popList = (city['population'])
-        latList = (city['lat'])
-        lngList = (city['lng'])
-        // cityVars.push(citiesList, popList, latList, lngList)
-        // console.log(cityVars)
-      
+    const citiesMarkers = cities.map(city => {
+
         // For each city, create a marker and bind a popup with the city's name
         // coords from response contain a depth field, slice removes this
         // Reverse swaps lat and lng to map locations correctly
 
-        const coords = [city.lat, city.lng]
+        const coords = city.coordinates
 
         // Change the values of these options to change the symbol's appearance    
         let options = {
-            radius: city.properties.mag * 15000,
-            fillColor: colorCircle(city.properties.mag),
-            color: colorCircle(city.properties.mag),
+            radius: city.population/500,
+            fillColor: "lightgreen",
+            color: "lightgreen",
             weight: 1,
             opacity: 1,
             fillOpacity: 0.5
           }
           
         // new Date parses Epoch time from JSON into human readable date&time
-        const popupMsg = "<h3>" + city.properties.title + "<h3><h3>Date: " + new Date(quake.properties.time)+ "<h3>";
+        const popupMsg = "<h3>" + city.city+ ", " + city.state + "<h3><h3>Population: " + city.population+ "<h3>";
         const citiesMarkers = L.circle(coords, options).bindPopup(popupMsg);
 
         // Add the marker to the quakeMarkers array
@@ -101,66 +96,66 @@ function createCircleMarkers(response) {
 
 
 // BUILD DROPDOWN SELECTOR
-function buildDropdown(metric) {
+// function buildDropdown(metric) {
 
-    // @TODO: function to build metadata panel Use `d3.json` to fetch the metadata for a sample @app.route("/metadata/<sample>")
-    const metadataUrl = "/metadata" ; 
+//     // @TODO: function to build metadata panel Use `d3.json` to fetch the metadata for a sample @app.route("/metadata/<sample>")
+//     const metadataUrl = "/metadata" ; 
   
-    // Use d3 to select the panel with id of `#metric-metadata`
-    const metadataVariable = d3.select('city-metadata')
+//     // Use d3 to select the panel with id of `#metric-metadata`
+//     const metadataVariable = d3.select('city-metadata')
    
-    // clear existing metadata
-    metadataVariable.html("")
+//     // clear existing metadata
+//     metadataVariable.html("")
   
-    // Use `Object.entries` to add each key and value pair to the panel Hint: Inside the loop, you will need to use d3 to append new tags for each key-value in the metadata.
+//     // Use `Object.entries` to add each key and value pair to the panel Hint: Inside the loop, you will need to use d3 to append new tags for each key-value in the metadata.
     
-    async function getVars() {
-      let jsonMeta = await d3.json(metadataUrl);
-      //Object.entries() method returns an array of a given object's own enumerable string-keyed property [key, value] pairs, in the same order as that provided
-    //   jsonMeta.map(key => {values
-    //     .append("h6")
-    //     .html(`<b>${key}</b>  :  ${values}`) // how to append multi w/o literal?
-    //     });
-      }
-    getVars();
-  }
+//     async function getVars() {
+//       let jsonMeta = await d3.json(metadataUrl);
+//       //Object.entries() method returns an array of a given object's own enumerable string-keyed property [key, value] pairs, in the same order as that provided
+//     //   jsonMeta.map(key => {values
+//     //     .append("h6")
+//     //     .html(`<b>${key}</b>  :  ${values}`) // how to append multi w/o literal?
+//     //     });
+//       }
+//     getVars();
+//   }
   
-function init() {
+// function init() {
     // Grab a reference to the dropdown select element
-    var selector = d3.select("#selDataset");
+    // var selector = d3.select("#selDataset");
   
     // Use the list of sample names to populate the select options
-    cityDicts = d3.json("/metadata")
+    // cityDicts = d3.json("/metadata")
     // const p = Promise.resolve(cityDicts)
-    cityVars = []
-    cityDicts.then(function(data) {data.map((city) => {
-            citiesList = (city['city'])
-            popList = (city['population'])
-            latList = (city['lat'])
-            lngList = (city['lng'])
-            // cityVars.push(citiesList, popList, latList, lngList)
-            // console.log(cityVars)
-          });})
+    // cityVars = []
+    // cityDicts.then(function(data) {data.map((city) => {
+    //         citiesList = (city['city'])
+    //         popList = (city['population'])
+    //         latList = (city['lat'])
+    //         lngList = (city['lng'])
+    //         // cityVars.push(citiesList, popList, latList, lngList)
+    //         // console.log(cityVars)
+    //       });})
 
     // cityDicts.then(function (data){data.forEach((city) => {
-      cityVar.forEach((key) => {
-        selector
-          .append("option")
-          .text(key)
-          .property("value", key);
-      });
+      // cityVar.forEach((key) => {
+      //   selector
+      //     .append("option")
+      //     .text(key)
+      //     .property("value", key);
+      // });
   
     //   Use the first sample from the list to build the initial plots
-      const firstVar = cityVar[0];
-    //   buildCharts(firstVar);
-       buildDropdown(firstVar);
-     };
-
-  function optionChanged(newVar) {
+      // const firstVar = cityVar[0];
+      // buildCharts(firstVar);
+    //    buildDropdown(firstVar);
+    //  };
+// 
+  // function optionChanged(newVar) {
     // Fetch new data each time a new sample is selected
     // buildCharts(newSample);
-    buildDropdown(newVar);
-  }
+  //   buildDropdown(newVar);
+  // }
   
   // Initialize the dashboard
-  init();
+  // init();
