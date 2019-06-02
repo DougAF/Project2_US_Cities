@@ -53,7 +53,7 @@ function createMap(citiesPlot) {
 
 function createCircleMarkers(response) {
 
-    cities = response.key
+    cities = response.keys
     // Pull the features from response
     const citiesMarkers = cities.map(city => {
 
@@ -96,66 +96,57 @@ function createCircleMarkers(response) {
 
 
 // BUILD DROPDOWN SELECTOR
-// function buildDropdown(metric) {
+// function buildDropdown(response) {
 
-//     // @TODO: function to build metadata panel Use `d3.json` to fetch the metadata for a sample @app.route("/metadata/<sample>")
-//     const metadataUrl = "/metadata" ; 
+    // @TODO: function to build metadata panel Use `d3.json` to fetch the metadata for a sample @app.route("/metadata/<sample>")
+    // const metadataUrl = "/metadata" ; 
   
-//     // Use d3 to select the panel with id of `#metric-metadata`
-//     const metadataVariable = d3.select('city-metadata')
+    // Use d3 to select the panel with id of `#metric-metadata`
+    // const metadataVariable = d3.select('city-metadata')
    
-//     // clear existing metadata
-//     metadataVariable.html("")
+    // clear existing metadata
+    // metadataVariable.html("")
   
-//     // Use `Object.entries` to add each key and value pair to the panel Hint: Inside the loop, you will need to use d3 to append new tags for each key-value in the metadata.
+    // Use `Object.entries` to add each key and value pair to the panel Hint: Inside the loop, you will need to use d3 to append new tags for each key-value in the metadata.
     
-//     async function getVars() {
-//       let jsonMeta = await d3.json(metadataUrl);
-//       //Object.entries() method returns an array of a given object's own enumerable string-keyed property [key, value] pairs, in the same order as that provided
-//     //   jsonMeta.map(key => {values
-//     //     .append("h6")
-//     //     .html(`<b>${key}</b>  :  ${values}`) // how to append multi w/o literal?
-//     //     });
-//       }
-//     getVars();
+    // async function getVars() {
+    //   let response = await d3.json(metadataUrl);
+    //   let cities = response.key
+      //Object.entries() method returns an array of a given object's own enumerable string-keyed property [key, value] pairs, in the same order as that provided
+    //   cities.map(key => {values
+    //     .append("h6")
+    //     .html(`<b>${key}</b>  :  ${values}`) // how to append multi w/o literal?
+    //     });
+    //   }
+    // getVars();
 //   }
   
 // function init() {
     // Grab a reference to the dropdown select element
     // var selector = d3.select("#selDataset");
-  
-    // Use the list of sample names to populate the select options
-    // cityDicts = d3.json("/metadata")
-    // const p = Promise.resolve(cityDicts)
-    // cityVars = []
-    // cityDicts.then(function(data) {data.map((city) => {
-    //         citiesList = (city['city'])
-    //         popList = (city['population'])
-    //         latList = (city['lat'])
-    //         lngList = (city['lng'])
-    //         // cityVars.push(citiesList, popList, latList, lngList)
-    //         // console.log(cityVars)
-    //       });})
+    // let cities = response.key
+    // Use the list of keys to populate the select options
 
-    // cityDicts.then(function (data){data.forEach((city) => {
-      // cityVar.forEach((key) => {
-      //   selector
-      //     .append("option")
-      //     .text(key)
-      //     .property("value", key);
-      // });
+    // cities.map((city) => {
+    //         citiesList = city.city
+    //         popList = city.population
+    //       });
+
+    // cities.forEach((key) => {
+    //     selector
+    //       .append("option")
+    //       .text(key)
+    //       .property("value", key);
+    //   });
   
-    //   Use the first sample from the list to build the initial plots
-      // const firstVar = cityVar[0];
-      // buildCharts(firstVar);
+    //Use the first sample from the list to build the initial plots
+    //   const firstVar = cityVar[0];
     //    buildDropdown(firstVar);
-    //  };
-// 
-  // function optionChanged(newVar) {
-    // Fetch new data each time a new sample is selected
-    // buildCharts(newSample);
-  //   buildDropdown(newVar);
-  // }
+
+//   function optionChanged(newVar) {
+//     // Fetch new data each time a new sample is selected
+//     buildDropdown(newVar);
+//   }};
   
-  // Initialize the dashboard
-  // init();
+//   Initialize the dashboard
+//   init();
