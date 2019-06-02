@@ -6,10 +6,20 @@
 
   <!-- bootstrap CSS -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <!-- Our CSS -->
   <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="../static/css/home.css">
+  <link rel="stylesheet" type="text/css" href="../static/css/layout.css">
+
 </head>
 <body>
     <div class="container">
+                <!--========== PARALLAX ==========-->
+            <div class="parallax-window" data-parallax="scroll" data-image-src="img/1920x1080/01.jpg">
+                <div class="parallax-content container">
+                <br>
+                </div>
+            </div>
             <div class="row">
                 <div class="col-md-12 jumbotron text-center">
                     <h1>Welcome to the City Data Explore Page!</h1>
@@ -20,13 +30,12 @@
             <div class="row">
                    <div class= "col-md-3">
                        <div id= "menu"></div>
-                       <h3>Menu</h3>
+                       <h3>Select A Parameter</h3>
                        <select id="selDataset" onchange="getData(this.value)">
                             <option value="dataset1">X Var 1</option>
                             <option value="dataset2">X Var 2</option>
                             <option value="dataset3">X Var 3</option>
                        </select>
-
                    </div>
                    <div class="col-md-9">
                         <div id="scatter"></div>
