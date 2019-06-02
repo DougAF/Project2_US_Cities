@@ -45,12 +45,32 @@ def home():
 # create Map 
 @app.route("/map")
 def map():
+    engine = create_engine("sqlite:///p2_cities.sqlite")
+# reflect an existing database into a new model
+    Base = automap_base() # AUTO MAP OR DECLARATIVE?
+# reflect the tables
+    Base.prepare(engine, reflect=True)
+# Save references to table
+    Cities = Base.classes.cities
+# Create our session (link) from Python to the DB
+    session = Session(engine)
     cities = Cities
     return render_template("map.html", cities = cities)
 
 # Scatter Plot
 @app.route("/scatter")
 def population():
+    engine = create_engine("sqlite:///p2_cities.sqlite")
+# reflect an existing database into a new model
+    Base = automap_base() # AUTO MAP OR DECLARATIVE?
+# reflect the tables
+    Base.prepare(engine, reflect=True)
+# Save references to table
+    Cities = Base.classes.cities
+# Create our session (link) from Python to the DB
+    session = Session(engine)
+    cities = Cities
+
     return render_template("scatter.html", cities = cities)
 
 

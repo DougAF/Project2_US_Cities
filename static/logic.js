@@ -74,7 +74,7 @@ function createCircleMarkers(response) {
           }
           
         // new Date parses Epoch time from JSON into human readable date&time
-        const popupMsg = "<h3>" + city.city+ ", " + city.state + "<h3><h3>Population: " + city.population+ "<h3>";
+        const popupMsg = "<h4>" + city.city + ", " + city.state + "<h4><h5>Population: " + numberWithCommas(city.population) + "<h5>";
         const citiesMarkers = L.circle(coords, options).bindPopup(popupMsg);
 
         // Add the marker to the quakeMarkers array
@@ -94,7 +94,9 @@ function createCircleMarkers(response) {
     createCircleMarkers(response)
 })()
 
-
+function numberWithCommas(x) {
+    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+ }
 // BUILD DROPDOWN SELECTOR
 // function buildDropdown(response) {
 
