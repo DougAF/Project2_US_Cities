@@ -26,20 +26,20 @@ function createMap(citiesPlot) {
 
     // Create a baseMaps object to hold the lightmap layer
     const baseMaps = {
+        "Satellite Image" : satellite,
         "Light Map": lightmap,
         "Dark Map" : darkmap,
-        "Satellite Image" : satellite
     };
 
     // Create an overlayMaps object to hold the quakePlot layer
     let overlayMaps = {
-        "<b>US Cities Data!</b><hr>Click a Circle for more info!<br>": citiesPlot
+        "<b>100 Largest US Cities</b><hr>Click a Circle for more info!<br>": citiesPlot
     };
 
     // Create the map object with options
     let map = L.map("map-id", {
-        center: [35.73, -90],
-        zoom: 3,
+        center: [32.73, -90],
+        zoom: 5,
         layers: [lightmap, darkmap, satellite, citiesPlot]
     });
 
@@ -93,62 +93,9 @@ function createCircleMarkers(response) {
     console.log(response)
     createCircleMarkers(response)
 })()
-
+ 
+// this function will add commmas to numbers for human reading 
 function numberWithCommas(x) {
     return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
- }
-// BUILD DROPDOWN SELECTOR
-// function buildDropdown(response) {
+ };
 
-    // @TODO: function to build metadata panel Use `d3.json` to fetch the metadata for a sample @app.route("/metadata/<sample>")
-    // const metadataUrl = "/metadata" ; 
-  
-    // Use d3 to select the panel with id of `#metric-metadata`
-    // const metadataVariable = d3.select('city-metadata')
-   
-    // clear existing metadata
-    // metadataVariable.html("")
-  
-    // Use `Object.entries` to add each key and value pair to the panel Hint: Inside the loop, you will need to use d3 to append new tags for each key-value in the metadata.
-    
-    // async function getVars() {
-    //   let response = await d3.json(metadataUrl);
-    //   let cities = response.key
-      //Object.entries() method returns an array of a given object's own enumerable string-keyed property [key, value] pairs, in the same order as that provided
-    //   cities.map(key => {values
-    //     .append("h6")
-    //     .html(`<b>${key}</b>  :  ${values}`) // how to append multi w/o literal?
-    //     });
-    //   }
-    // getVars();
-//   }
-  
-// function init() {
-    // Grab a reference to the dropdown select element
-    // var selector = d3.select("#selDataset");
-    // let cities = response.key
-    // Use the list of keys to populate the select options
-
-    // cities.map((city) => {
-    //         citiesList = city.city
-    //         popList = city.population
-    //       });
-
-    // cities.forEach((key) => {
-    //     selector
-    //       .append("option")
-    //       .text(key)
-    //       .property("value", key);
-    //   });
-  
-    //Use the first sample from the list to build the initial plots
-    //   const firstVar = cityVar[0];
-    //    buildDropdown(firstVar);
-
-//   function optionChanged(newVar) {
-//     // Fetch new data each time a new sample is selected
-//     buildDropdown(newVar);
-//   }};
-  
-//   Initialize the dashboard
-//   init();

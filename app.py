@@ -42,6 +42,11 @@ def home():
     cities = Cities
     return render_template("home.html", cities = cities)
 
+@app.route("/info")
+def info():
+    cities = Cities
+    return render_template("info.html", cities = cities)
+
 # create Map 
 @app.route("/map")
 def map():
@@ -118,7 +123,6 @@ def city_metadata():
     meta_dict = {"keys": meta_list}
 
     return jsonify(meta_dict)
-
 
 if __name__ == "__main__":
     app.run(debug=True)
