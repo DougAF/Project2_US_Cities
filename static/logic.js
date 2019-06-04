@@ -33,7 +33,7 @@ function createMap(citiesPlot) {
 
     // Create an overlayMaps object to hold the quakePlot layer
     let overlayMaps = {
-        "<b>US Cities</b><hr>Click a Circle for more info!<br>": citiesPlot
+        "<b>US Cities</b><hr>Click a Circle for more info! <br> Note all data shown is from 2016<br>": citiesPlot
     };
 
     // Create the map object with options
@@ -67,14 +67,14 @@ function createCircleMarkers(response) {
         let options = {
             radius: Math.abs(city.biz_growth_Y)*3000,
             fillColor: colorCity(city.biz_growth_Y),
-            color: "lightgreen",
+            color: colorCityRim(city.biz_growth_Y),
             weight: 1,
             opacity: 1,
             fillOpacity: 0.5
           }
           
         // new Date parses Epoch time from JSON into human readable date&time
-        const popupMsg = "<h4>" + city.city + ", " + city.state + " Business Growth: " + (city.biz_growth_Y).toFixed(2)+ "%" + "<h4><hr><h5>Population: "+ numberWithCommas(city.population_2016) + " " + "Establishments: " + numberWithCommas(city.estab_2016) + "<h5>";
+        const popupMsg = "<h4>" + city.city + ", " + city.state + "<hr></h4>" +"<h5><b> Business Growth: " + (city.biz_growth_Y).toFixed(2)+ "%</b>" + "<hr><li>Population: "+ numberWithCommas(city.population_2016) + "</li> " + "<li>Establishments: " + numberWithCommas(city.estab_2016) + "</li> " + "<li>Tax Law Rank: " + city.tax_rank + "</li> " +  "<li>Education: " + (city.bach_or_higher_percent).toFixed(2) + "%     completed undergrad" + "</li> </h5> ";
         const citiesMarkers = L.circle(coords, options).bindPopup(popupMsg); 
 
         // Add the marker to the quakeMarkers array
@@ -104,6 +104,15 @@ function numberWithCommas(x) {
         color = "red"
     } else {
         color = "green"
+     }
+     return color
+};
+
+function colorCityRim(y) {
+    if (y<= 0) {
+        color = "darkorange"
+    } else {
+        color = "lightgreen"
      }
      return color
 };

@@ -13,31 +13,41 @@
 
 </head>
 <body>
-    <div class="container">
+    
                 <!--========== PARALLAX ==========-->
-            <div class="parallax-window" data-parallax="scroll" data-image-src="img/1920x1080/01.jpg">
-                <div class="parallax-content container">
-                <br>
-                </div>
+         <div class="parallax-window" data-parallax="scroll" data-image-src="img/1920x1080/01.jpg">
+            <div class="parallax-content container">
+            <br>
             </div>
-            <div class="row">
-                <div class="col-md-12 jumbotron text-center">
-                    <h1>Welcome to the City Data Explore Page!</h1>
-                    <h2>(We've got fun and games!)</h2>
-                    <p>Use the interactive charts below to explore the dataset</p>
-                </div>
-            </div>
-            <div class="row">
-                   <div class= "col-md-3">
-                       <div id= "menu"></div>
-                       <h3>Select A Parameter</h3>
-                       <select id="selDataset" onchange="getData(this.value)">                          
-                            <option value="Population">Population</option>
-                            <option value="EducationalAttainment">Educational Attainment</option>
-                            <option value="Household Income">Household Income</option>                           
-                            <option value="Commute Time">Commute Time</option>
-                            <!-- <option value="Crime Rate">Crime Rate</option> -->
-                            <option value="State Tax">State Tax</option>
+        </div>
+  <!-- jumbotron Welcome -->
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="jumbotron" style = "background-color: rgba(129, 125, 123, 0.5)">
+          <h3><b> Welcome to the City Scatter!</b></h3>
+          <p style="font-size: 30px;"> Select a variable to search for correlation to Business Growth</p>
+          <a class="btn btn-default btn-train" href="/" role="button"> Home </a>
+          <a class="btn btn-default btn-train" href="/info" role="button"> Project Info</a>
+          <a class="btn btn-default btn-train" href="/map" role="button"> Map</a>
+          <a class="btn btn-default btn-train" href="/scatter" role="button"> Scatter</a>
+          <a class="btn btn-default btn-train" href="/metadata" role="button"> Data</a>
+        </div>
+      </div>
+    </div>
+  </div>
+        <div class="container">   
+        <div class="row">
+                <div class= "col-md-3">
+                <div id= "menu"></div>
+                <h3>Select A Parameter</h3>
+                <select id="selDataset" onchange="getData(this.value)">                          
+                    <option value="Population">Population</option>
+                    <option value="EducationalAttainment">Educational Attainment</option>
+                    <option value="Household Income">Household Income</option>                           
+                    <option value="Commute Time">Commute Time</option>
+            <!-- <option value="Crime Rate">Crime Rate</option> -->
+                    <option value="State Tax">State Tax</option>
                        </select>
                    </div>
                    <div class="col-md-9">

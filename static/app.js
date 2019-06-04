@@ -35,16 +35,16 @@ function init(){
            text: cityState,
            marker : {size: 6}
            };
-       
+
     var sData = [trace1];
    
     var layout = {
        height: 600,
        width: 800,
-       title: 'Plot Title',
+       title: 'X vs Business Growth',
        xaxis: {
            title: {
-               text:'X Variable'
+               text:'Selected X Variable'
            }
        },
        yaxis: {
