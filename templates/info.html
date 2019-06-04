@@ -56,6 +56,9 @@
           <ul >Eo / Po</ul>
           <ul>This can be read as 'establishments over population at time t minus establishments over population initial all divided by establishments over population initial.' This calculation returns a ratio that we multiplied by 100 to return a percent change in establishments which can be seen by clicking a city on the Map page.</ul>
           <hr>
+          <p class="text-left"><b>RESTful API and GeoJSONifying</b></p>
+          <p class="text-left">Our data route is populated via querying an SQLite database and formatting the data into a GeoJSON format. This nested dictionary format makes for easier accessing of data for the scatter plot and map.</p>
+          <hr>
           <p class="text-left"><b>Visualizations</b></p>
           <p class="text-left">To display our data in an interactive way we decided to create a Leaflet interactive map and a scatter plot with toggleable X variables. The Leaflet map consists of a circle for each city that is colored to indicate business growth or shrinkage and whos radius is scaled by the magnitude of this change. Our scatter plot allows the user to search for correlation between a chosen X varable and business growth percentage. The scatter plot also provides information via hovertext so that one may transition between the Scatter and Map with a city or metric in mind.</p>
           <hr>
