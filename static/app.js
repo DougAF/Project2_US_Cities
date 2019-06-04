@@ -1,32 +1,38 @@
+
+   var buisnessGrowth = [];
+   var cityState = [];
+   var population = [];  
+   var income = [];
+   var taxRank = [];  
+   var educationalAttainment = [];
+   var commuteTime = [];
+   var crimeRate = [];
+   var cityName =[];
+   var stateName =[];
+
 function init(){
-    d3.csv(("project2_data/Crime_Data_2014.csv")).then((data) => {
-   //  console.log(data);
-   var population = []
-   var violentCrime = []
-   var propertyCrime = []
+    d3.json(("/metadata")).then((data) => {
    
-    data.forEach(element => {
-        element.Population = +element.Population
-        element.ViolentCrimerate = +element.ViolentCrimerate
-        element.Propertycrimerate = +element.Propertycrimerate
-        population.push(element.Population)
-        violentCrime.push(element.ViolentCrimerate)
-        propertyCrime.push(element.Propertycrimerate)
-         
+    data.keys.forEach(element => {
+        buisnessGrowth.push(element.biz_growth_Y) 
+        income.push(element.median_household_inc)
+        taxRank.push(element.tax_rank)
+        population.push(element.population_2016)
+        cityName.push(element.city)
+        stateName.push(element.state) 
+        educationalAttainment.push(element.bach_or_higher_percent)
+        commuteTime.push(element.agg_commute_mins)
+        cityState.push(element.city_state)
     });
-    console.log(data[0])
-   
     var trace1 = {
-           // x : [1, 2, 3, 4, 5],
-           // y : [2, 4, 6, 8, 10],
-   
+     
            x : population,
-           y : violentCrime,
+           y : buisnessGrowth,
    
            mode: 'markers',
            type : "scatter",
            name: 'City Name',
-           text: ['a','b', 'c','d','e'],
+           text: cityState,
            marker : {size: 6}
            };
        
@@ -49,30 +55,39 @@ function init(){
      };
    
      Plotly.plot('scatter', sData, layout);
-    })
-    
+    }) 
    }
-
+   
    function updatePlotly(newdata) {
        const chart = document.getElementById("scatter");
-       Plotly.restyle(chart, 'y', [newdata]);
+       Plotly.restyle(chart, 'x', [newdata]);
+       Plotly.relayout(chart, 'xaxis.title.text', [newtitle])
    }
    function getData(dataset) {
        let data = [];
        switch (dataset) {
-           case "dataset1":
-           // data =  [1, 2, 3, 39, 45]
-           data = propertyCrime
+           case "Population":
+           data =  population ;
            break;
-           case "dataset2":
-           data = [10, 20, 30, 37, 52]
+           case "EducationalAttainment":
+           data = educationalAttainment;
            break;
-           case "dataset3":
-           data =  [100, 200, 300, 23, 432]
+           case "Household Income":
+           data =  income;
+           break;
+           case "Commute Time":
+           data =  commuteTime;
+           break;
+        //    case "Crime Rate":
+        //    data =  crimeRate
+           break;
+           case "State Tax":
+           data =  taxRank
            break;
            default:
-           data =  [2, 4, 6, 8, 10]    
+           data =  population ;  
      }
      updatePlotly(data);
    }
+   
    init();

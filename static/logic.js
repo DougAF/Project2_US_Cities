@@ -33,7 +33,7 @@ function createMap(citiesPlot) {
 
     // Create an overlayMaps object to hold the quakePlot layer
     let overlayMaps = {
-        "<b>100 Largest US Cities</b><hr>Click a Circle for more info!<br>": citiesPlot
+        "<b>US Cities</b><hr>Click a Circle for more info!<br>": citiesPlot
     };
 
     // Create the map object with options
@@ -65,8 +65,8 @@ function createCircleMarkers(response) {
 
         // Change the values of these options to change the symbol's appearance    
         let options = {
-            radius: city.population_2016/500,
-            fillColor: "lightgreen",
+            radius: Math.abs(city.biz_growth_Y)*3000,
+            fillColor: colorCity(city.biz_growth_Y),
             color: "lightgreen",
             weight: 1,
             opacity: 1,
@@ -74,8 +74,8 @@ function createCircleMarkers(response) {
           }
           
         // new Date parses Epoch time from JSON into human readable date&time
-        const popupMsg = "<h4>" + city.city + ", " + city.state + "<h4><hr><h5>Population: "+ numberWithCommas(city.population_2016) + " " + "Establishments: " + numberWithCommas(city.estab_2016) + "<h5>";
-        const citiesMarkers = L.circle(coords, options).bindPopup(popupMsg);
+        const popupMsg = "<h4>" + city.city + ", " + city.state + " Business Growth: " + (city.biz_growth_Y).toFixed(2)+ "%" + "<h4><hr><h5>Population: "+ numberWithCommas(city.population_2016) + " " + "Establishments: " + numberWithCommas(city.estab_2016) + "<h5>";
+        const citiesMarkers = L.circle(coords, options).bindPopup(popupMsg); 
 
         // Add the marker to the quakeMarkers array
         return citiesMarkers;
@@ -99,3 +99,11 @@ function numberWithCommas(x) {
     return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
  };
 
+ function colorCity(y) {
+    if (y<= 0) {
+        color = "red"
+    } else {
+        color = "green"
+     }
+     return color
+};
