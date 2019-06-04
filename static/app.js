@@ -49,7 +49,7 @@ function init(){
        },
        yaxis: {
            title: {
-               text: 'Business Growth'
+               text: 'Business Growth %'
            }
        }
      };
