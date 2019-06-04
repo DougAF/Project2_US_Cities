@@ -65,7 +65,7 @@ function createCircleMarkers(response) {
 
         // Change the values of these options to change the symbol's appearance    
         let options = {
-            radius: city.population/500,
+            radius: city.population_2016/500,
             fillColor: "lightgreen",
             color: "lightgreen",
             weight: 1,
@@ -74,7 +74,7 @@ function createCircleMarkers(response) {
           }
           
         // new Date parses Epoch time from JSON into human readable date&time
-        const popupMsg = "<h4>" + city.city + ", " + city.state + "<h4><h5>Population: " + numberWithCommas(city.population) + "<h5>";
+        const popupMsg = "<h4>" + city.city + ", " + city.state + "<h4><h5>Population: " + city.population_2016 + "<h5>";
         const citiesMarkers = L.circle(coords, options).bindPopup(popupMsg);
 
         // Add the marker to the quakeMarkers array
@@ -95,7 +95,7 @@ function createCircleMarkers(response) {
 })()
  
 // this function will add commmas to numbers for human reading 
-function numberWithCommas(x) {
-    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
- };
+// function numberWithCommas(x) {
+//     return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+//  };
 

@@ -1,5 +1,5 @@
 function init(){
-    d3.csv(("Crime_Data_2014.csv")).then((data) => {
+    d3.csv(("project2_data/Crime_Data_2014.csv")).then((data) => {
    //  console.log(data);
    var population = []
    var violentCrime = []
