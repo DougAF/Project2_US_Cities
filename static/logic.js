@@ -1,12 +1,12 @@
 function createMap(citiesPlot) {
 
     // Create the tile layer that will be the background of our map
-    const lightmap = L.tileLayer("https://api.mapbox.com/styles/v1/mapbox/light-v9/tiles/256/{z}/{x}/{y}?access_token={accessToken}", {
-        attribution: "Map data &copy; <a href=\"http://openstreetmap.org\">OpenStreetMap</a> contributors, <a href=\"http://creativecommons.org/licenses/by-sa/2.0/\">CC-BY-SA</a>, Imagery © <a href=\"http://mapbox.com\">Mapbox</a>",
-        maxZoom: 18,
-        id: "mapbox.light",
+    const streetmap = L.tileLayer("https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}", {
+        attribution: "Map data &copy; <a href=\"https://www.openstreetmap.org/\">OpenStreetMap</a> contributors, <a href=\"https://creativecommons.org/licenses/by-sa/2.0/\">CC-BY-SA</a>, Imagery © <a href=\"https://www.mapbox.com/\">Mapbox</a>",
+        maxZoom: 17,
+        id: "mapbox.streets",
         accessToken: API_KEY
-    });
+      });
 
     // Create Darkmap background
     const darkmap = L.tileLayer("https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}", {
@@ -22,13 +22,13 @@ function createMap(citiesPlot) {
         maxZoom: 18,
         id: "mapbox.satellite",
         accessToken: API_KEY
-    })
-
+    });
+    
     // Create a baseMaps object to hold the lightmap layer
     const baseMaps = {
         "Satellite Image" : satellite,
-        "Light Map": lightmap,
-        "Dark Map" : darkmap,
+        "Street Map": streetmap,
+        "Dark Map" : darkmap
     };
 
     // Create an overlayMaps object to hold the quakePlot layer
@@ -40,7 +40,7 @@ function createMap(citiesPlot) {
     let map = L.map("map-id", {
         center: [32.73, -90],
         zoom: 5,
-        layers: [lightmap, darkmap, satellite, citiesPlot]
+        layers: [streetmap, darkmap, satellite, citiesPlot]
     });
 
     // Create a layer control, pass in the baseMaps and overlayMaps. Add the layer control to the map
@@ -74,7 +74,7 @@ function createCircleMarkers(response) {
           }
           
         // new Date parses Epoch time from JSON into human readable date&time
-        const popupMsg = "<h4>" + city.city + ", " + city.state + "<h4><h5>Population: " + city.population_2016 + "<h5>";
+        const popupMsg = "<h4>" + city.city + ", " + city.state + "<h4><hr><h5>Population: "+ numberWithCommas(city.population_2016) + " " + "Establishments: " + numberWithCommas(city.estab_2016) + "<h5>";
         const citiesMarkers = L.circle(coords, options).bindPopup(popupMsg);
 
         // Add the marker to the quakeMarkers array
@@ -95,7 +95,7 @@ function createCircleMarkers(response) {
 })()
  
 // this function will add commmas to numbers for human reading 
-// function numberWithCommas(x) {
-//     return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-//  };
+function numberWithCommas(x) {
+    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+ };
 

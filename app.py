@@ -109,11 +109,12 @@ def city_metadata():
         Cities.income_tax_rank,
         Cities.sales_tax_rank,
         Cities.property_tax_rank,
-        Cities.unemployment_tax_rank
+        Cities.unemployment_tax_rank,
+        Cities.city_state
     ]
 
     # results = session.query(*sel).order_by(Cities.population.desc()).limit(100).all()
-    results = session.query(*sel).limit(100).all()
+    results = session.query(*sel).all()
 
     # Create a dictionary entry for each city's information
     meta_dict = {}
@@ -137,13 +138,12 @@ def city_metadata():
         city_metadata_dict["sales_tax_rank"] = result[13]
         city_metadata_dict["property_tax_rank"] = result[14]
         city_metadata_dict["unemployment_tax_rank"] = result[15]
+        city_metadata_dict["city_state"] = result[16]
         
     #INSERT ADDITIONAL VARS HERE 
-    
         meta_list.append(city_metadata_dict)
         #ALLOWS ACCES TO ALL DATA BY DICT.KEY FOR MAPPING LEAFLET
     meta_dict = {"keys": meta_list}
-
     return jsonify(meta_dict)
 
 if __name__ == "__main__":
